@@ -1,0 +1,37 @@
+int pir1=1;
+int pir2=2;
+int sheepcount=0;
+
+void setup()
+{
+  pinMode(pir1,INPUT);
+  pinMode(pir2, OUTPUT);
+   Serial.begin(9600);
+
+}
+
+void loop()
+{
+  int read1=digitalRead(1);
+  int read2=digitalRead(2);
+  
+  if(read1==HIGH)
+  {
+    delay(3000);
+    if (read2==HIGH)
+    {
+      sheepcount=sheepcount+1;
+    }
+  }
+  else if(read2==HIGH)
+  {
+    delay(3000);
+    if (read1==HIGH)
+    {
+      sheepcount=sheepcount-1;
+    }
+  }
+
+  Serial.println(sheepcount);
+      
+}
